@@ -6,10 +6,12 @@ import 'meal_item_trait.dart';
 class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
-    required this.meal
+    required this.meal,
+    required this.onSelectMeal
     });
 
   final Meal meal;
+  final void Function(Meal meal) onSelectMeal;
 
   //Creating the first letter of the word upper case
   String get complexityText {
@@ -29,7 +31,9 @@ class MealItem extends StatelessWidget {
       //given toa stack. SO by setting clipBehavior to hard it then passes and doens't get removed like that
       elevation: 4,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectMeal( meal);
+        },
         child: Stack( //Stack places widgets one on one like a background and on it something
                       // FadeIn allows for a smooth transparent look 
           children: [
