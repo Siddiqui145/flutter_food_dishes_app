@@ -1,16 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:food_dishes/models/category.dart';
 
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+  const CategoryGridItem({
+    super.key,
+    required this.category,
+    required this.onSelectCategory,
+  });
 
   final Category category;
+  final void Function() onSelectCategory;
   // Referred the blueprint we created and now accessing and using that specific mentioned data here
 
   @override
   Widget build(BuildContext context) {
     //Inkwell gives a feedback when user taps, gesture woundn't give that
-    return InkWell(onTap: () {} ,
+    return InkWell(onTap: onSelectCategory ,
     splashColor: Theme.of(context).primaryColor,
     borderRadius: BorderRadius.circular(36),
       child: Container(
