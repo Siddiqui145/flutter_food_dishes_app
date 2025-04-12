@@ -22,7 +22,7 @@ class MealsScreen extends StatelessWidget {
     Widget content = Center (child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Uh oh... Nothing here',style: Theme.of(context).textTheme.titleLarge),
+            Text('Uh oh... Nothing here',style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white)),
             const SizedBox(height: 16,),
             Text('Try Selecting a different category',style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: Theme.of(context).colorScheme.onSurface,

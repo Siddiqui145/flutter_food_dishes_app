@@ -28,18 +28,29 @@ class MealDetailsScreen extends ConsumerWidget {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: 
                        Text(wasAdded ? 'Meal added as a Favorite' : 'Meal removed from Favorites')));
           },
-          icon: Icon(isFav ? Icons.favorite : Icons.favorite_outline))
+          icon: AnimatedSwitcher(
+            duration: const Duration( milliseconds: 300),
+            transitionBuilder: (child, animation) {
+              return RotationTransition(turns: Tween(
+                begin: 0.5,
+                end: 1.0
+              ).animate(animation), child: child,);
+            },
+            child: Icon(isFav ? Icons.favorite : Icons.favorite_outline, key: ValueKey(isFav),)) )
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(     //Singlechildscrollview or simple Listview
           children: [
-            Image.network(meal.imageUrl,
-        height: 300,
-        width: double.infinity,
-        fit: BoxFit.cover,
-        ),
+            Hero(
+              tag: meal.id,
+              child: Image.network(meal.imageUrl,
+                      height: 300,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      ),
+            ),
         
         const SizedBox(height: 14,),
         Text('Ingredients',
