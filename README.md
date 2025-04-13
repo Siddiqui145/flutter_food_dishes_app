@@ -53,8 +53,10 @@ The **Flutter Food Dishes App** is a beautifully designed recipe app that allows
 - **Provider (optional)** – State management  
 
 
-## 🎨 UI & Screenshots  
-(Add screenshots of your app here)  
+## 🎨 Demo
+
+https://github.com/user-attachments/assets/92ad23c8-a29e-4db6-a3d5-66b53eaaa6d3
+
 
 ## 📌 Future Enhancements  
 - [ ] **Dark Mode Support**  
